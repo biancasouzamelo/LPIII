@@ -2,8 +2,8 @@
 public class Aluno {
 	private String matricula;
 	private String nome;
-	private string telefone;
-	private string endereco;
+	private String telefone;
+	private String endereco;
 	
 	public String getMatricula() {
 		return matricula;
@@ -18,16 +18,16 @@ public class Aluno {
 		this.nome = nome;
 	}
 
-	public string getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
-	public void setTelefone(string telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public string getEndereco() {
+	public String getEndereco() {
 		return endereco;
 	}
-	public void setEndereco(string endereco) {
+	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
 	@Override
