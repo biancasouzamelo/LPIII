@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Biblioteca {
 	ArrayList<Aluno> vetAluno = new ArrayList();
 	ArrayList<Livro> vetLivro = new ArrayList();
+	ArrayList<Emprestimo> vetEmprestimo = new ArrayList();
 	
 	public void cadastrarAluno(){
 		Aluno a = new Aluno();
@@ -57,17 +58,54 @@ public class Biblioteca {
 		
 		System.out.printf("Alunos cadastrados no sistema: ");
 		for(int i = 0; i<vetAluno.size();i++){
-			System.out.println(vetAluno);
+			System.out.println((i+1)+","+vetAluno.get(i));
+		}	
+	}
+	
+	public void listLivros(){
+		System.out.printf("Livros cadastrados no sistema: ");
+		for(int i =0; i<vetLivro.size() ;i++){
+			System.out.println((i+1)+","+vetLivro.get(i));
 		}
-		
 	}
 	
 	public void emprestarLivro(){
+		Scanner leOpcao = new Scanner(System.in);
+		Scanner leData = new Scanner(System.in);
 		Aluno a = new Aluno();
-		Livro l = new Livro();
-		Emprestimo e = new Emprestimo();
+		Livro livr = new Livro();
+		Emprestimo emp = new Emprestimo();
+		int opcao;
+		
+		listarAluno();
+		listLivros();
+		
+		System.out.println("\n\nDigite o indice do aluno que deseja emprestar o livro: ");
+		opcao = leOpcao.nextInt();
+		if(opcao >=0 && opcao <vetLivro.size()){
+			emp.setAluno(vetAluno.get(opcao));
+		}
+		else{
+			System.out.print("Valor de índice inválido! ");
+		}
 		
 		
+		System.out.println("\n\nDigite o indice do livro: ");
+		opcao = leOpcao.nextInt();
+		if(opcao >=0 && opcao <vetLivro.size()){
+			emp.setLivro(vetLivro.get(opcao));
+		}
+		else{
+			System.out.print("Valor de índice inválido! ");
+		}
+		
+		
+		System.out.println("\n\nDigite a data do empréstimo: ");
+		emp.setDataEmprestimo(leData.nextLine());
+		
+		
+		
+		/*
 		a.setMatricula("12345");
 		a.setNome("Bianca Melo");
 		a.setTelefone("999-8888");
@@ -83,6 +121,6 @@ public class Biblioteca {
 		System.out.println(a);
 		System.out.println(l);
 		System.out.println(e);
-		
+		*/
 	}
 }

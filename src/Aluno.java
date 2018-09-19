@@ -32,6 +32,6 @@ public class Aluno {
 	}
 	@Override
 	public String toString() {
-		return "Aluno [matricula=" + matricula + ", nome=" + nome + "]";
+		return "Aluno [matricula: "+matricula+", nome: " + nome + ", Telefone: "+telefone+", Endereço: "+endereco+"]";
 	}
 }
