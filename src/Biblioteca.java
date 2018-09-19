@@ -69,11 +69,17 @@ public class Biblioteca {
 		}
 	}
 	
+	public void listEmprestimo(){
+		System.out.printf("Emprestimos cadastrados no sistema: ");
+		for(int i =0; i<vetEmprestimo.size();i++){
+			System.out.println((i+1)+","+vetEmprestimo.get(i));
+		}
+	}
+	
 	public void emprestarLivro(){
 		Scanner leOpcao = new Scanner(System.in);
 		Scanner leData = new Scanner(System.in);
-		Aluno a = new Aluno();
-		Livro livr = new Livro();
+		
 		Emprestimo emp = new Emprestimo();
 		int opcao;
 		
@@ -105,6 +111,13 @@ public class Biblioteca {
 		
 		
 		
+		emp.setStatus(1);
+		
+		
+		
+		vetEmprestimo.add(emp);
+		
+		
 		/*
 		a.setMatricula("12345");
 		a.setNome("Bianca Melo");
@@ -122,5 +135,25 @@ public class Biblioteca {
 		System.out.println(l);
 		System.out.println(e);
 		*/
+	}
+	
+	public void devolverLivro(){
+		Scanner leOpcao = new Scanner(System.in);
+		Emprestimo emp = new Emprestimo();
+		
+		listEmprestimo();
+		
+		int opcao;
+		
+		System.out.print("Digite o índice do empréstimo que deseja devolver: ");
+		opcao = leOpcao.nextInt();
+		if(opcao >=0 && opcao <vetLivro.size()){
+			System.out.print("Digite a data da devolução: ");
+			vetEmprestimo.get(opcao);
+			
+		}
+		else{
+			System.out.print("Valor de índice inválido! ");
+		}
 	}
 }
